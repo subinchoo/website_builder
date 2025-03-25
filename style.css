@@ -19,6 +19,7 @@ body, button, input, textarea, select, p, h2 {
   gap: 20px;
   font-size: 18px;
   z-index: 10; /* ensures it stays above everything */
+  right:0;
 }
 
 
@@ -31,6 +32,7 @@ body, button, input, textarea, select, p, h2 {
 
 #top-panel .fa:hover {
   color: #618ff3;
+ 
 }
 
 #main {
@@ -76,7 +78,8 @@ body, button, input, textarea, select, p, h2 {
   display: block;
 }
 
-#gjs {
-  flex: 1;
-  background: white;
+
+#style-pane{
+  flex-shrink: 0;
+  width:290px;
 }

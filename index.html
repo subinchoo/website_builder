@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>TeleportHQ-Style Website Builder</title>
+  <title>Website Builder</title>
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -15,12 +15,14 @@
 <body>
 
   <!-- Top Toolbar -->
-  <div id="top-panel"></div>
+  <div id="top-panel" ></div>
 
   <!-- Main Layout -->
-  <div id="main">
-    <div id="left-panel">
-      <div id="left-tabs">
+  <div id="main" style="display: flex; height: 100vh; width: 100vw; overflow: hidden; position:relative;">
+    <div id="left-panel" style=" width: 250px;
+    min-width: 250px;
+    flex-shrink: 0;">
+      <div id="left-tabs" style="margin-top:60px;">
         <button data-tab="blocks" class="tab-btn active">Blocks</button>
         <button data-tab="pages" class="tab-btn">Pages</button>
         <button data-tab="layers" class="tab-btn">Layers</button>
@@ -30,11 +32,15 @@
       <div id="layers-tab" class="tab-content"></div>
     </div>
 
-    <div id="gjs"></div>
+    <div id="gjs" style=" background: #fff; margin-top: 20px; overflow:auto; min-width: 0;  height: calc(100vh - 10px);"></div>
+    <div id="style-panel" style=" width: 290px; min-width:250px; flex-shrink:0; padding: 10px; overflow-y:auto; position:absolute; right: 0px;;left:300;top:60px; height:100vh;"></div>
+
   </div>
+
 
   <!-- Scripts -->
   <script src="https://unpkg.com/grapesjs@0.21.8/dist/grapes.min.js"></script>
-  <script src="builder.js"></script>
+  <script type="module" src="/builder.js"></script>
+
 </body>
 </html>
