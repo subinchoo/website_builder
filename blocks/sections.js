@@ -20,7 +20,7 @@ export function loadSectionBlocks(editor){
     label: 'Feature Section',
     category: 'Sections',
     content: `
-      <section style="padding: 60px 20px; text-align: center;">
+      <section style="padding: 60px 20px; text-align: center; " data-gjs-type="section">
         <h2>Our Features</h2>
         <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px;">
           <div>

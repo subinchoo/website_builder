@@ -22,18 +22,35 @@
     <div id="left-panel" style=" width: 250px;
     min-width: 250px;
     flex-shrink: 0;">
-      <div id="left-tabs" style="margin-top:60px;">
+      <div id="left-tabs" style="margin-top:50px";>
         <button data-tab="blocks" class="tab-btn active">Blocks</button>
         <button data-tab="pages" class="tab-btn">Pages</button>
         <button data-tab="layers" class="tab-btn">Layers</button>
       </div>
       <div id="blocks-tab" class="tab-content active"></div>
-      <div id="pages-tab" class="tab-content">Coming Soon...</div>
+      <div id="pages-tab" class="tab-content">
+        <h3 style="margin-bottom: 10px; color:black">Your Pages</h3>
+        <ul id="pages-list" style="list-style: none; padding: 0;">
+          <li class="page-item" data-page="home">Home</li>
+          <li class="page-item" data-page="about">About</li>
+          <li class="page-item" data-page="profile">Profile</li>
+          <li class="page-item" data-page="blog">Blog</li>
+          <li class="page-item" data-page="portfolio">Portfolio</li>
+          <li class="page-item" data-page="services">Services</li>
+          <li class="page-item" data-page="pricing">Pricing</li>
+          <li class="page-item" data-page="contact">Contact</li>
+          <li class="page-item" data-page="thankyou">Thank you</li>
+          <li class="page-item" data-page="error">404ERROR</li>
+
+
+        </ul>
+      </div>
+      
       <div id="layers-tab" class="tab-content"></div>
     </div>
 
-    <div id="gjs" style=" background: #fff; margin-top: 20px; overflow:auto; min-width: 0;  height: calc(100vh - 10px);"></div>
-    <div id="style-panel" style=" width: 290px; min-width:250px; flex-shrink:0; padding: 10px; overflow-y:auto; position:absolute; right: 0px;;left:300;top:60px; height:100vh;"></div>
+    <div id="gjs" style=" background: #fff; margin-top: 20px; overflow:auto; min-width: 0; height: calc(100vh - 20px); "></div>
+    <div id="style-panel" style=" width: 250px; min-width:250px; flex-shrink:0; padding: 10px; overflow-y:auto; position:absolute; right: 0px;;left:300;top:60px; height:100vh;"></div>
 
   </div>
 
