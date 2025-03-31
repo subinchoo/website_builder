@@ -1,6 +1,4 @@
 
-
-```
 # 🌐 Website Builder
 
 A fully customizable, drag-and-drop responsive website builder powered by [GrapesJS](https://grapesjs.com/). Designed for marketers, developers, and non-tech users to create cinematic-quality websites with ease — including landing pages, upsells, thank-you pages, and more.
@@ -22,6 +20,7 @@ A fully customizable, drag-and-drop responsive website builder powered by [Grape
 ---
 
 ## 📁 Project Structure
+
 
 ```
 /website-builder
