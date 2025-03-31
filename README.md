@@ -78,6 +78,6 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 📫 Contact
 
 Made with ❤️ by Subin Choo  
-Feel free to reach out via [LinkedIn](https://linkedin.com/in/your-profile) or open an issue on GitHub.
+Feel free to reach out via [LinkedIn](https://linkedin.com/in/subinchoo0514) or open an issue on GitHub.
 
 Let me know if you want it tailored specifically for WordPress + GrapesJS integration or with setup instructions for backend/database saving!
