@@ -22,7 +22,7 @@
     <div id="left-panel" style=" width: 250px;
     min-width: 250px;
     flex-shrink: 0;">
-      <div id="left-tabs" style="margin-top:50px";>
+      <div id="left-tabs" style="margin-top:50px;">
         <button data-tab="blocks" class="tab-btn active">Blocks</button>
         <button data-tab="pages" class="tab-btn">Pages</button>
         <button data-tab="layers" class="tab-btn">Layers</button>
@@ -40,7 +40,7 @@
           <li class="page-item" data-page="pricing">Pricing</li>
           <li class="page-item" data-page="contact">Contact</li>
           <li class="page-item" data-page="thankyou">Thank you</li>
-          <li class="page-item" data-page="error">404ERROR</li>
+          <li class="page-item" data-page="error">404ERROR</li> 
 
 
         </ul>
@@ -50,14 +50,21 @@
     </div>
 
     <div id="gjs" style=" background: #fff; margin-top: 20px; overflow:auto; min-width: 0; height: calc(100vh - 20px); "></div>
-    <div id="style-panel" style=" width: 250px; min-width:250px; flex-shrink:0; padding: 10px; overflow-y:auto; position:absolute; right: 0px;;left:300;top:60px; height:100vh;"></div>
+    
+    <div id="style-panel" style=" width: 250px; min-width:250px; flex-shrink:0; padding: 10px; overflow-y:auto; position:absolute; right: 0px;left:300;top:60px; height:100vh;">
+    
+    <div id="traits-container" style="width: 250px; min-width:250px; flex-shrink:0; padding: 10px; overflow-y:auto; position:absolute; right: 0px; top:calc(60px + 50%); height:50%;"></div>
+</div>
 
   </div>
 
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/grapesjs@0.21.8/dist/grapes.min.js"></script>
-  <script type="module" src="/builder.js"></script>
+  <!-- <script src="https://unpkg.com/grapesjs@0.21.8/dist/grapes.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/grapesjs@0.21.8/dist/grapes.min.js"></script>
+
+  <script type="module" src="builder.js"></script>
+  
 
 </body>
 </html>

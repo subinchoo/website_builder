@@ -1,4 +1,4 @@
-import grapesjs from 'https://unpkg.com/grapesjs?module';
+// import grapesjs from 'https://unpkg.com/grapesjs?module';
 
 import {loadElementBlocks} from './blocks/elements.js';
 import { loadSectionBlocks } from './blocks/sections.js';
@@ -20,6 +20,10 @@ const editor = grapesjs.init({
   styleManager:{
     appendTo: '#style-panel'
   },
+  traitManager: {
+    appendTo: '#traits-container'
+  },
+  
   canvas: {
     styles: [
       'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap',
@@ -108,6 +112,30 @@ const editor = grapesjs.init({
       { name: 'Tablet', width: '768px' },
       { name: 'Mobile', width: '375px' },
     ]
+  }
+});
+
+
+editor.DomComponents.addType('custom-link', {
+  isComponent: el => el.tagName === 'A' && el.classList.contains('custom-link'),
+  model: {
+    defaults: {
+      traits: [
+        {
+          type: 'text',
+          label: 'Link URL',
+          name: 'href',
+          placeholder: 'https://example.com'
+        },
+        {
+          type: 'checkbox',
+          label: 'Open in new tab',
+          name: 'target',
+          valueTrue: '_blank',
+          valueFalse: ''
+        }
+      ]
+    }
   }
 });
 
@@ -221,3 +249,9 @@ document.querySelectorAll('.page-item').forEach(item => {
     item.classList.add('active');
   });
 });
+
+// In dev console
+editor.getHtml(); // Copy HTML
+editor.getCss();  // Copy CSS
+editor.getProjectData(); // Copy JSON backup
+

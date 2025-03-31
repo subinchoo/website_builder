@@ -57,4 +57,37 @@ export function loadFromBlocks(editor){
          <div>
         `
       });
+
+      editor.BlockManager.add('pricing-form', {
+      label: 'Pricing Form',
+      category: 'Form',
+      content: `
+        <section class="pricing-section">
+      <h2>Pricing Plans</h2>
+      <div class="pricing-cards">
+        <div class="pricing-card">
+          <h3>Free</h3>
+          <p>$0 / mo</p>
+          <ul>
+            <li>Basic Templates</li>
+            <li>Limited Storage</li>
+            <li>Email Support</li>
+          </ul>
+          <a href="#" class="btn fancy-btn">Get Started</a>
+        </div>
+        <div class="pricing-card">
+          <h3>Pro</h3>
+          <p>$19.99 / mo</p>
+          <ul>
+            <li>All Templates</li>
+            <li>Unlimited Storage</li>
+            <li>Priority Support</li>
+          </ul>
+<a href="#" class="btn fancy-btn custom-link">Upgrade</a>
+        </div>
+      </div>
+    </section>
+
+      `
+    });
 }
