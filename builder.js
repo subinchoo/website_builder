@@ -12,6 +12,9 @@ import { loadPricingPage } from './pages/pricing.js';
 import { loadContactPage } from './pages/contactus.js';
 import { loadBlogHomePage } from './pages/blogs.js';
 
+import { loadAdPage } from './marketing/advertisement.js';
+import { loadLandingPage } from './marketing/landing.js';
+import { loadUpsellPage } from './marketing/upsell.js';
 const editor = grapesjs.init({
   container: '#gjs',
   height: '100%',
@@ -30,7 +33,8 @@ const editor = grapesjs.init({
     styles: [
       'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap',
       'style.css' ,// ✅ Make sure this CSS is correctly linked in your project
-      'form-style.css'
+      'form-style.css',
+      'marketing-style.css'
     ],
     style: `
       * {
@@ -217,6 +221,14 @@ load404Page(editor);
 loadPricingPage(editor);
 loadContactPage(editor);
 loadBlogHomePage(editor);
+// marketing funnel
+// advertisement - landing page - upsell - thank you
+
+loadAdPage(editor);
+loadLandingPage(editor);
+loadUpsellPage(editor);
+
+
 // Save command
 editor.Commands.add('save-data', {
   run(editor, sender) {
@@ -268,6 +280,9 @@ const pages = {
   services: 'page-services',
   pricing: 'page-pricing',
   contact: 'page-contact',
+  advertisement: 'page-advertisement',
+  landing: 'page-landing',
+  upsell: 'page-upsell',
   thankyou: 'page-thankyou',
   error: 'page-error'
 };
@@ -336,7 +351,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
 
 
 // In dev console
