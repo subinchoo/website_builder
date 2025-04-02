@@ -5,7 +5,7 @@ A fully customizable, drag-and-drop responsive website builder powered by [Grape
 
 ---
 
-## 🚀 Features
+## 🚀 Features (still in progress)
 
 - 🧩 Drag-and-drop builder using GrapesJS
 - 🎨 Fully responsive and mobile-friendly designs
@@ -17,6 +17,9 @@ A fully customizable, drag-and-drop responsive website builder powered by [Grape
 - 💳 Payment system ready (Stripe, PayPal, etc.)
 - ✅ Marketing team checklist & workflow system
 
+Learned in the middle of this project.
+1. I used GrapeJS open source , and CDN error issue
+   “I learned that even great libraries like GrapesJS can break if they depend too much on external CDNs — so I took control by downloading everything locally, fixed all errors, and made my setup future-proof.”
 ---
 
 ## 📁 Project Structure
