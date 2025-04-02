@@ -5,15 +5,6 @@ export function loadFromBlocks(editor){
         content: `
           <div
             class="contact-form-wrapper"
-            style="
-              width: 100%;
-              max-width: 700px;
-              margin: 40px auto;
-              padding: 40px;
-              background: #fff;
-              border-radius: 12px;
-              box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            "
             data-gjs-resizable='{
               "tl": 0,
               "tc": 0,
@@ -26,22 +17,22 @@ export function loadFromBlocks(editor){
             }'
             data-gjs-draggable="true"
           >
-            <h2 style="text-align: center; margin-bottom: 30px; font-size: 2em; color: #2a2a72;">Contact Us</h2>
-            <form style="display: flex; flex-direction: column; gap: 20px;">
+            <h2>Contact Us</h2>
+            <form>
               <div>
-                <label style="display: block; margin-bottom: 6px; font-weight: 600; color: #333;">Name</label>
+                <label>Name</label>
                 <input type="text" placeholder="Your name" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1em;" />
               </div>
               <div>
-                <label style="display: block; margin-bottom: 6px; font-weight: 600; color: #333;">Email</label>
-                <input type="email" placeholder="Your email" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1em;" />
+                <label>Email</label>
+                <input type="email" placeholder="Your email" />
               </div>
               <div>
-                <label style="display: block; margin-bottom: 6px; font-weight: 600; color: #333;">Message</label>
-                <textarea placeholder="Your message" style="width: 100%; padding: 12px; height: 120px; border: 1px solid #ccc; border-radius: 8px; font-size: 1em; resize: vertical;"></textarea>
+                <label>Message</label>
+                <textarea placeholder="Your message"></textarea>
               </div>
               <div style="text-align: center;">
-                <button type="submit" style="padding: 14px 30px; background-color: #2a2a72; color: white; border: none; border-radius: 8px; font-size: 1em; cursor: pointer; transition: background 0.3s;">
+                <button type="submit">
                   Send Message
                 </button>
               </div>
@@ -54,8 +45,68 @@ export function loadFromBlocks(editor){
         label: 'Signup Form',
         category: 'Form',
         content: `
-         <div>
-        `
+      <section class="signup-section">
+        <div class="signup-box">
+          <h2>Create Your Account</h2>
+          <form class="signup-form">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+            <button type="submit">Sign Up</button>
+          </form>
+
+          <div class="divider"><span>or sign up with</span></div>
+
+          <div class="social-login">
+            <button class="social-btn google-btn">
+              <i class="fab fa-google"></i> Sign up with Google
+            </button>
+            <button class="social-btn facebook-btn">
+              <i class="fab fa-facebook-f"></i> Sign up with Facebook
+            </button>
+          </div>
+
+          <p class="signup-login-text">
+            Already have an account? <a href="#">Log In</a>
+          </p>
+        </div>
+      </section>
+    `
+      });
+  
+      
+      editor.BlockManager.add('signin-form', {
+        label: 'Signin Form',
+        category: 'Form',
+        content: `
+      <section class="signin-section">
+  <div class="signin-box">
+    <h2>Welcome Back</h2>
+    <form class="signin-form">
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+
+    <div class="divider"><span>or sign in with</span></div>
+
+    <div class="social-login">
+      <button class="social-btn google-btn">
+        <i class="fab fa-google"></i> Sign in with Google
+      </button>
+      <button class="social-btn facebook-btn">
+        <i class="fab fa-facebook-f"></i> Sign in with Facebook
+      </button>
+    </div>
+
+    <p class="signup-login-text">
+      Don't have an account? <a href="#">Sign Up</a>
+    </p>
+  </div>
+</section>
+
+    `
       });
 
       editor.BlockManager.add('pricing-form', {
@@ -90,4 +141,46 @@ export function loadFromBlocks(editor){
 
       `
     });
+
+    editor.BlockManager.add('blog-form', {
+      label : 'Blog Form',
+      category: 'Form',
+      content:`
+       <section class="blog-form-wrapper">
+          <h2>Create New Blog Post</h2>
+          <form class="blog-form">
+            <input type="text" placeholder="Blog Title" name="title" required />
+            <input type="text" placeholder="Subtitle" name="subtitle" />
+            
+           <label for="category">Category</label>
+                <select name="category" id="category-select" required>
+                <option value="">Select Category</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="marketing">Marketing</option>
+                <option value="design">Design</option>
+                <option value="tech">Tech</option>
+                <option value="other">Other</option>
+                </select>
+
+                <input 
+                type="text" 
+                id="custom-category" 
+                name="custom_category" 
+                placeholder="Enter new category..." 
+                style="display: none; margin-top: 10px;" 
+                />
+
+  
+            <label>Upload Image</label>
+            <input type="file" name="image" accept="image/*" />
+  
+            <textarea name="body" rows="10" placeholder="Write your blog content here..."></textarea>
+  
+            <input type="text" name="hashtags" placeholder="#hashtag1, #hashtag2" />
+  
+            <button type="submit">Publish Blog</button>
+          </form>
+        </section>
+`
+    })
 }

@@ -9,6 +9,8 @@ import { loadHomePage } from './pages/home.js';
 import { load404Page } from './pages/error404.js';
 import { loadAboutPage } from './pages/aboutus.js';
 import { loadPricingPage } from './pages/pricing.js';
+import { loadContactPage } from './pages/contactus.js';
+import { loadBlogHomePage } from './pages/blogs.js';
 
 const editor = grapesjs.init({
   container: '#gjs',
@@ -27,7 +29,8 @@ const editor = grapesjs.init({
   canvas: {
     styles: [
       'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap',
-      'style.css' // ✅ Make sure this CSS is correctly linked in your project
+      'style.css' ,// ✅ Make sure this CSS is correctly linked in your project
+      'form-style.css'
     ],
     style: `
       * {
@@ -163,21 +166,86 @@ loadSectionBlocks(editor);
 loadFromBlocks(editor);
 loadLayoutBlocks(editor);
 
+// Register custom 'about-hero' component with background upload
+export function registerAboutHeroComponent(editor) {
+  editor.DomComponents.addType('about-hero', {
+    model: {
+      defaults: {
+        tagName: 'section',
+        classes: ['about-hero'],
+        attributes: { class: 'about-hero' },
+        style: {
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          height: '400px',
+          position: 'relative',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
+        traits: [
+          {
+            type: 'file',
+            label: 'Background Image',
+            name: 'bgImage',
+            changeProp: 1
+          }
+        ]
+      },
+      init() {
+        this.on('change:bgImage', () => {
+          const file = this.get('bgImage');
+          if (file && file.length) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const dataUrl = e.target.result;
+              this.addStyle({ backgroundImage: `url(${dataUrl})` });
+            };
+            reader.readAsDataURL(file[0]);
+          }
+        });
+      }
+    }
+  });
+}
+
 //load Pages 
 loadHomePage(editor);
+registerAboutHeroComponent(editor);
 loadAboutPage(editor);
 load404Page(editor);
 loadPricingPage(editor);
-
+loadContactPage(editor);
+loadBlogHomePage(editor);
 // Save command
 editor.Commands.add('save-data', {
   run(editor, sender) {
     sender && sender.set('active', false);
+
     const html = editor.getHtml();
     const css = editor.getCss();
-    alert('Saved!\n\nHTML length: ' + html.length + '\nCSS length: ' + css.length);
+    const json = editor.getProjectData();
+
+    const data = {
+      html,
+      css,
+      json
+    };
+
+    const fileName = `grapesjs-backup-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-')}.json`;
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
+
+    alert('Project saved as a downloadable file!');
   }
 });
+
 
 // Tabs switching
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -249,6 +317,27 @@ document.querySelectorAll('.page-item').forEach(item => {
     item.classList.add('active');
   });
 });
+
+
+//blog category 
+document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("category-select");
+  const customInput = document.getElementById("custom-category");
+  const wrapper = document.getElementById("custom-category-wrapper");
+
+  select.addEventListener("change", () => {
+    if (select.value === "other") {
+      wrapper.style.display = "block";
+      customInput.required = true;
+    } else {
+      wrapper.style.display = "none";
+      customInput.required = false;
+      customInput.value = ""; // clear input when hiding
+    }
+  });
+});
+
+
 
 // In dev console
 editor.getHtml(); // Copy HTML

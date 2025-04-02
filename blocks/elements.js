@@ -6,6 +6,27 @@ editor.BlockManager.add('text-element', {
     content: `<p style="font-size: 1.1em; text-align: center;">Insert your text here</p>`
   });
   
+  // LINK TEXT
+editor.BlockManager.add('link-text-element', {
+  label: 'Link Text',
+  category: 'Elements',
+  content: `<a href="#" style="font-size: 1.1em;">Insert your link text here</a>`
+});
+
+  // Question TEXT
+  editor.BlockManager.add('faq-text-element', {
+    label: 'FAQ Text',
+    category: 'Elements',
+    content: ` <details>
+        <summary style="font-weight: bold; margin-bottom: 0.5rem; cursor: pointer;" data-gjs-editable="true">
+        Your question goes here
+      </summary>
+  <p style="font-size: 0.95rem; color: #666; margin-left: 1rem;" data-gjs-editable="true">
+        Your answer goes here
+      </p>  </details>`
+  });
+  
+
   // HEADING
   editor.BlockManager.add('heading-element', {
     label: 'Heading',

@@ -3,6 +3,11 @@ export function loadPricingPage(editor) {
     label: 'Pricing Pages',
     category: 'Pages',
     content: `
+     <section class="home-hero">
+        <h1 class="home-title">Plans</h1>
+        <p class="home-subtext">Find the perfect plan for you</p>
+    </section>
+    
     <section class="pricing-section">
       <h2>Pricing Plans</h2>
       <div class="pricing-cards">
@@ -53,6 +58,16 @@ export function loadPricingPage(editor) {
         <button type="submit" class="btn fancy-btn">Pay $19.99</button>
       </form>
     </section>
+
+     <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
     `
   });
 }
