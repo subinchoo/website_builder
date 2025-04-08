@@ -6,7 +6,7 @@ export function loadLandingPage(editor) {
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="marketing-style.css">
   
-        <section class="landing-hero">
+        <section  data-gjs-type="landing-hero" class="landing-hero">
           <div class="landing-hero-content">
             <h1 class="landing-title">Ready to Launch Your Product?</h1>
             <p class="landing-sub">Join thousands of entrepreneurs using our tools to go from idea to execution.</p>

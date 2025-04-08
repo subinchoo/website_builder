@@ -34,6 +34,7 @@
   padding: 4rem 2rem;
   background: #ffffff;
   text-align: center;
+  animation: fadeIn 0.8s ease-in-out;
 }
 
 .offer-box {
@@ -154,7 +155,6 @@
   border-radius: 12px;
   padding: 1.5rem;
   z-index: 9999;
-  display: none;
   flex-direction: column;
   align-items: flex-start;
   max-width: 280px;
@@ -187,4 +187,727 @@
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Hero Section */
+.ad-hero {
+  background-color: #4f46e5;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.ad-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ad-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.ad-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ad-cta {
+  display: inline-block;
+  background-color: white;
+  color: #4f46e5;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ad-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Features Section */
+.ad-features {
+  padding: 6rem 2rem;
+  background-color: #f8fafc;
+}
+
+.ad-features h2 {
+ background-color: transparent !important;
+}
+
+.ad-section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1e293b;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.ad-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ad-feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.ad-feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.ad-feature-card h3 {
+  color: #4f46e5;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.ad-feature-card p {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* Media Section */
+.ad-media {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.ad-preview-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.8s ease-in-out;
+
+}
+
+/* Scroll-based Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Footer */
+.site-footer {
+  background-color: #1e293b;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ad-title {
+    font-size: 2.5rem;
+  }
+
+  .ad-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .ad-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-section-heading  {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-title {
+    font-size: 2rem;
+  }
+
+  .ad-cta {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .footer-links a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}
+
+/* Contact Section */
+.ad-contact {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container h2{
+background-color: transparent !important;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  margin-bottom: 3rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.contact-submit {
+  background: #4f46e5;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.contact-submit:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+/* Responsive adjustments for contact section */
+@media (max-width: 768px) {
+  .ad-contact {
+    padding: 4rem 1.5rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ad-contact {
+    padding: 3rem 1rem;
+  }
+
+  .contact-submit {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Landing Page Styles */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9fafb;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+
+.landing-hero {
+  background-color: #4f46e5;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 4rem 2rem;
+}
+
+.landing-hero-content {
+  max-width: 800px;
+}
+
+.landing-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.landing-sub {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.landing-cta {
+  display: inline-block;
+  background-color: white;
+  color: #4f46e5;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.landing-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Benefits Section */
+.landing-benefits {
+  padding: 6rem 2rem;
+  background-color: #f8fafc;
+  text-align: center;
+}
+
+.landing-benefits h2 {
+  padding: 6rem 2rem;
+  background-color: transparent !important;
+  text-align: center;
+}
+.landing-section-heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1e293b;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.landing-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.landing-benefit-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.landing-benefit-card:hover {
+  transform: translateY(-5px);
+}
+
+.landing-benefit-card h3 {
+  color: #4f46e5;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.landing-benefit-card p {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* Testimonial Section */
+.landing-testimonial {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  text-align: center;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.landing-testimonial blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #4f46e5;
+  margin-bottom: 1rem;
+}
+
+.testimonial-author {
+  font-size: 1rem;
+  color: #64748b;
+}
+
+/* Form Section */
+.landing-form-section {
+  padding: 6rem 2rem;
+  background: white;
+  text-align: center;
+}
+
+.form-box {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.form-box h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signup-form input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.signup-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.signup-form button {
+  background: #4f46e5;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.signup-form button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+}
+
+.divider {
+  margin: 2rem 0;
+  font-size: 0.9rem;
+  color: #64748b;
+  position: relative;
+}
+
+.divider span {
+  background: white;
+  padding: 0 1rem;
+}
+
+.divider:before,
+.divider:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.divider:before {
+  left: 0;
+}
+
+.divider:after {
+  right: 0;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+.fa-google {
+  color: #db4437;
+}
+
+.fa-facebook-f {
+  color: #4267b2;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #1e293b;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footer-links {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+
+  .landing-sub {
+    font-size: 1.1rem;
+  }
+
+  .landing-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-section-heading {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-title {
+    font-size: 2rem;
+  }
+
+  .landing-cta {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .footer-links a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+}   
+
+/* /styles/thankyou.css */
+
+.thankyou-wrapper {
+  font-family: 'Outfit', sans-serif;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.logo a{
+  text-decoration : none;
+  color:black;
+}
+.thankyou-nav a {
+  margin-left: 20px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.thankyou-main {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.thankyou-icon {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.thankyou-main h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #0a2342;
+}
+
+.thankyou-main p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.thankyou-main .highlight {
+  margin-top: 20px;
+  font-weight: bold;
+  color: #4e54c8;
+}
+
+.social-links img {
+  width: 32px;
+  margin: 0 10px;
+  pointer-events: none;
+}
+
+.thankyou-footer {
+  background: #ececec;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 40px 20px;
+  color: #333;
+}
+
+.footer-col {
+  flex: 1 1 200px;
+  margin: 10px 20px;
+background-color: transparent !important;
+}
+
+.footer-col h4 {
+  margin-bottom: 12px;
+  color: #0a2342;
+}
+.footer-col p {
+  margin-bottom: 12px;
+  color: #0a2342;
+  font-size: 1rem;
+  font-family: "Outfit", sans-serif;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  background-color: transparent !important;
+
+}
+
+.footer-col li {
+  margin-bottom: 6px;
+  background-color: transparent !important;
+  color:black;
+
+}
+
+.footer-col a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 500;
+}
+
+.thankyou-bottom p {
+  background: #0a2342;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.return_home {
+  margin-top:20px;
+  text-decoration: none;
 }

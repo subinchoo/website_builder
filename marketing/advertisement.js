@@ -40,18 +40,36 @@ export function loadAdPage(editor) {
         <h2 class="ad-section-heading">Our Works</h2>
         <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
         <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
-        
+      </section>
+
+      <section class="ad-contact">
+        <div class="contact-container">
+          <h2 class="ad-section-heading">Get in Touch</h2>
+          <p class="contact-subtitle">Ready to start your project? We're here to help.</p>
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="contact-submit">Send Message</button>
+          </form>
+        </div>
       </section>
 
       <footer class="site-footer">
-      <div class="footer-links">
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">Terms</a>
-        <a href="#">Privacy</a>
-      </div>
-      <p>&copy; 2025 Your Company. All rights reserved.</p>
-    </footer>
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      </footer>
     `
   });
 }

@@ -2,19 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+
   <title>Website Builder</title>
 
   <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- GrapesJS CSS -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/grapesjs@0.21.8/dist/css/grapes.min.css"> -->
-  <!-- more stable than unpkg -->
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/grapesjs@0.21.8/dist/css/grapes.min.css"> --> 
-   <!-- good for long term -->
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
    <link rel="stylesheet" href="./libs/grapes.min.css">
-
-
   <!-- Custom styles -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -29,9 +25,10 @@
     min-width: 250px;
     flex-shrink: 0;">
       <div id="left-tabs" style="margin-top:50px;">
+
         <button data-tab="blocks" class="tab-btn active">Blocks</button>
         <button data-tab="pages" class="tab-btn">Pages</button>
-        <button data-tab="layers" class="tab-btn">Layers</button>
+        <button data-tab="stack" class="tab-btn">Site Stack</button>
       </div>
       <div id="blocks-tab" class="tab-content active"></div>
       <div id="pages-tab" class="tab-content">
@@ -39,9 +36,7 @@
         <ul id="pages-list" style="list-style: none; padding: 0;">
           <li class="page-item" data-page="home">Home</li>
           <li class="page-item" data-page="about">About</li>
-          <li class="page-item" data-page="profile">Profile</li>
           <li class="page-item" data-page="blog">Blog</li>
-          <li class="page-item" data-page="portfolio">Portfolio</li>
           <li class="page-item" data-page="services">Services</li>
           <li class="page-item" data-page="pricing">Pricing</li>
           <li class="page-item" data-page="contact">Contact</li>
@@ -49,10 +44,12 @@
           <li class="page-item" data-page="landing">Landing</li>
           <li class="page-item" data-page="upsell">Upsell</li>
           <li class="page-item" data-page="thankyou">Thank you</li>
-          <li class="page-item" data-page="error">404ERROR</li> 
-
-
+          <li class="page-item" data-page="error">404ERROR</li>
         </ul>
+      </div>
+      <div id="stack-tab" class="tab-content">
+        <button id="add-current-page" style="margin: 10px 0;">+ Add Current Page to Site</button>
+        <ul id="site-stack-list" style="list-style: none; padding: 0;"></ul>
       </div>
       
       <div id="layers-tab" class="tab-content"></div>
@@ -70,6 +67,10 @@
   <!-- Scripts -->
   <!-- <script src="https://unpkg.com/grapesjs@0.21.8/dist/grapes.min.js"></script> -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/grapesjs@0.21.8/dist/grapes.min.js"></script> -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
   <script src="./libs/grapes.min.js"></script>
 
 

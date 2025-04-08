@@ -182,5 +182,21 @@ export function loadFromBlocks(editor){
           </form>
         </section>
 `
-    })
+    });
+
+  // FOOTER
+  editor.BlockManager.add('footer-element', {
+    label: 'Footer',
+    category: 'Form',
+    content: `
+        <footer class="site-footer">
+      <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Terms</a>
+        <a href="#">Privacy</a>
+      </div>
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>`
+  });
 }
