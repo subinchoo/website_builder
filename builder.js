@@ -319,7 +319,6 @@ editor.on('block:drag:stop', (model) => {
     const wrapper = editor.DomComponents.getWrapper();
     const components = wrapper.components();
 
-    // 이미 다른 컴포넌트가 있으면, 네비게이션을 맨 앞에 넣어줌
     components.add(model.clone(), { at: 0 });
     model.remove();
   }
@@ -334,7 +333,7 @@ editor.on('load', () => {
   canvasDoc.body.style.minHeight = '100%';
   canvasDoc.body.style.overflowY = 'auto';
   canvasBody = editor.Canvas.getBody();
-  canvasBody.style.paddingTop = '60px'; // navbar 높이만큼 위에서 밀어줌
+
 });
 
 document.querySelectorAll('.page-item').forEach(item => {

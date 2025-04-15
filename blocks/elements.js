@@ -1,4 +1,47 @@
 export function loadElementBlocks(editor){
+///HEADING
+
+// HEADING 1
+editor.BlockManager.add('heading-1', {
+  label: 'Heading 1',
+  category: 'Elements',
+  content: `<h1 style="font-size: 2.5em; text-align: center;">Heading 1 Title</h1>`
+});
+
+// HEADING 2
+editor.BlockManager.add('heading-2', {
+  label: 'Heading 2',
+  category: 'Elements',
+  content: `<h2 style="font-size: 2em; text-align: center;">Heading 2 Title</h2>`
+});
+
+// HEADING 3
+editor.BlockManager.add('heading-3', {
+  label: 'Heading 3',
+  category: 'Elements',
+  content: `<h3 style="font-size: 1.75em; text-align: center;">Heading 3 Title</h3>`
+});
+
+// HEADING 4
+editor.BlockManager.add('heading-4', {
+  label: 'Heading 4',
+  category: 'Elements',
+  content: `<h4 style="font-size: 1.5em; text-align: center;">Heading 4 Title</h4>`
+});
+
+// HEADING 5
+editor.BlockManager.add('heading-5', {
+  label: 'Heading 5',
+  category: 'Elements',
+  content: `<h5 style="font-size: 1.25em; text-align: center;">Heading 5 Title</h5>`
+});
+
+// HEADING 6
+editor.BlockManager.add('heading-6', {
+  label: 'Heading 6',
+  category: 'Elements',
+  content: `<h6 style="font-size: 1em; text-align: center;">Heading 6 Title</h6>`
+});
 
 /// TEXT
 editor.BlockManager.add('text-element', {
@@ -25,14 +68,6 @@ editor.BlockManager.add('link-text-element', {
   <p style="font-size: 0.95rem; color: #666; margin-left: 1rem;" data-gjs-editable="true">
         Your answer goes here
       </p>  </details>`
-  });
-  
-
-  // HEADING
-  editor.BlockManager.add('heading-element', {
-    label: 'Heading',
-    category: 'Elements',
-    content: `<h2 style="font-size: 2em; text-align: center;" >Heading Title</h2>`
   });
   
   // IMAGE
@@ -218,7 +253,6 @@ editor.BlockManager.add('link-text-element', {
     `
   });
   
-
   // TEXTAREA
   editor.BlockManager.add('textarea-element', {
     label: 'Textarea',

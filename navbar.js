@@ -34,12 +34,12 @@ export function registerAutoNavbar(editor, getPagesFn) {
             justifyContent: 'center',
           },
           script() {
-            // 여긴 실행 시점에 필요한 경우만 작성
+            // if needed
           }
         },
   
         init() {
-          // 링크 갱신 트리거 설정
+
           this.listenTo(this.collection, 'add', this.updateLinks);
           this.updateLinks();
         },
@@ -65,8 +65,7 @@ export function registerAutoNavbar(editor, getPagesFn) {
         }
       }
     });
-  
-    // 외부에서 현재 페이지 리스트를 받아오도록 설정
+
     window.getIncludedPages = getPagesFn;
   }
   
