@@ -263,4 +263,11 @@ editor.BlockManager.add('link-text-element', {
     </div>`
   });
  
+  // LOGO
+  editor.BlockManager.add('logo-uploader', {
+    label: 'Logo Upload',
+    category: 'Elements',
+    content: { type: 'logo-uploader' }
+  });
+  
 }

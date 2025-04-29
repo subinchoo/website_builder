@@ -325,6 +325,33 @@ body {
     transform: translateY(0);
   }
 }
+.ad-slider {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.ad-slider-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.ad-preview-img {
+  flex-shrink: 0;
+  width: 500px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 
 /* Footer */
 .site-footer {

@@ -25,17 +25,17 @@ export function loadAboutPage(editor) {
           </p>
           <div class="about-features">
             <div class="about-feature-box"  align="centre">
-              <img src="" >
+              <img src="https://via.placeholder.com/120" >
               <h3>Feature 1</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="about-feature-box"  align="centre">
-              <img src="">
+              <img src="https://via.placeholder.com/120">
               <h3>Feature 2</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="about-feature-box"  align="centre">
-              <img src="" >
+              <img src="https://via.placeholder.com/120" >
               <h3>Feature 3</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>

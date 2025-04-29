@@ -1,5 +1,5 @@
 // import grapesjs from 'https://unpkg.com/grapesjs?module';
-import { registerAutoNavbar } from './navbar.js';
+// import { registerAutoNavbar } from './navbar.js';
 import {loadElementBlocks} from './blocks/elements.js';
 import { loadSectionBlocks } from './blocks/sections.js';
 import { loadFromBlocks } from './blocks/form.js';
@@ -28,18 +28,24 @@ const editor = grapesjs.init({
   container: '#gjs',
   height: '100%',
   width: '100%',
-  fromElement: false,
+  fromElement: true,
   storageManager: false,
   blockManager: { appendTo: '#blocks-tab' },
   styleManager:{ appendTo: '#style-panel' },
-  traitManager: { appendTo: '#traits-container' },
+  traitManager: { appendTo: '#style-panel' },
   canvas: {
     styles: [
       'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', 
       'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap',
       'style.css',
       'form-style.css',
-      'marketing-style.css'
+      'marketing-style.css',
+      'global.css',
+      'home.css',
+      'footer.css',
+      'layout.css',
+      'services.css',
+      'thankyou.css'
     ],
     style: `
       * {
@@ -85,45 +91,54 @@ const editor = grapesjs.init({
   
 });
 
+// registerAutoNavbar(editor, () => ['home', 'about', 'services', 'contact']);
+editor.addComponents(`
+  <header class="top-bar">
+    <div class="top-content">
+      <div class="left-buttons">
+        <button class="top-button">Shop</button>
+        <button class="top-button">Take Quiz</button>
+      </div>
+      <div class="logo-upload">
+        <label for="logo-upload-input">
+          <img id="logo-image" src="https://via.placeholder.com/120x40?text=Logo" alt="Logo" />
+        </label>
+        <input type="file" id="logo-upload-input" accept="image/*" style="display:none;">
+      </div>
+      <div class="right-icons">
+        <span>👤</span>
+        <span>🛒</span>
+      </div>
+    </div>
+  </header>
+`);
+editor.on('load', () => {
+  const canvasBody = editor.Canvas.getBody();
+  const canvasDoc = editor.Canvas.getDocument();
 
+  canvasBody.style.minHeight = '100%';
+  canvasBody.style.overflowY = 'auto';
+  canvasBody.style.paddingTop = '0'; /* (Remove this padding-top) */
 
-// delete event
-document.getElementById("site-stack-list").addEventListener("click", (e) => {
-  const target = e.target;
-  const li = target.parentElement;
+  canvasDoc.body.style.minHeight = '100%';
+  canvasDoc.body.style.overflowY = 'auto';
 
-  if (target.classList.contains("remove-page-btn")) {
-    const page = target.getAttribute("data-page");
-    includedPages = includedPages.filter(p => p !== page);
-    li.remove();
-  }
+  const logoInput = canvasDoc.getElementById('logo-upload-input');
+  const logoImage = canvasDoc.getElementById('logo-image');
 
-  if (target.classList.contains("move-up-btn")) {
-    const prev = li.previousElementSibling;
-    if (prev) {
-      li.parentNode.insertBefore(li, prev);
-      reorderIncludedPages();
-    }
-  }
-
-  if (target.classList.contains("move-down-btn")) {
-    const next = li.nextElementSibling;
-    if (next) {
-      li.parentNode.insertBefore(next, li);
-      reorderIncludedPages();
-    }
+  if (logoInput && logoImage) {
+    logoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          logoImage.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
   }
 });
-
-// 배열 순서도 반영
-function reorderIncludedPages() {
-  const newOrder = [];
-  document.querySelectorAll("#site-stack-list li").forEach(li => {
-    const pageName = li.textContent.trim().split(" ")[0]; // 'home 🔼 🔽 ❌' → 'home'
-    newOrder.push(pageName);
-  });
-  includedPages = newOrder;
-}
 
 // Add custom link component
 editor.DomComponents.addType('custom-link', {
@@ -148,7 +163,6 @@ editor.DomComponents.addType('section', {
     }
   }
 });
-registerAutoNavbar(editor, () => window.includedPages);
 // Load blocks
 loadElementBlocks(editor);
 loadSectionBlocks(editor);
@@ -190,6 +204,58 @@ export function registerAboutHeroComponent(editor) {
   });
 }
 
+
+// Logo Upload Component
+editor.DomComponents.addType('logo-uploader', {
+  model: {
+    defaults: {
+      tagName: 'div',
+      classes: ['logo-container'],
+      droppable: false,
+      components: [
+        {
+          type: 'image',
+          attributes: {
+            src: 'https://via.placeholder.com/150x80?text=Logo',
+            alt: 'Your Logo',
+            class: 'logo-img'
+          }
+        }
+      ],
+      traits: [
+        {
+          type: 'file',
+          label: 'Upload Logo',
+          name: 'logoFile',
+          changeProp: 1
+        }
+      ],
+      logoFile: '', // prop to hold the file temporarily
+    },
+
+    init() {
+      this.on('change:logoFile', () => {
+        const file = this.get('logoFile');
+        if (file && file.length > 0) {
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const logoImg = this.findType('image')[0];
+            logoImg.addAttributes({ src: e.target.result });
+          };
+          reader.readAsDataURL(file[0]);
+        }
+      });
+    }
+  }
+});
+function reorderIncludedPages() {
+  const newOrder = [];
+  document.querySelectorAll("#site-stack-list .site-stack-item").forEach(li => {
+    const pageName = li.querySelector(".page-name").textContent.trim();
+    newOrder.push(pageName);
+  });
+  includedPages = newOrder;
+}
 // Load page blocks
 loadHomePage(editor);
 registerAboutHeroComponent(editor);
@@ -369,32 +435,6 @@ document.querySelectorAll('.page-item').forEach(item => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const addBtn = document.getElementById("add-current-page");
-  const list = document.getElementById("site-stack-list");
-
-  if (addBtn && list) {
-    addBtn.addEventListener("click", () => {
-      if (!includedPages.includes(currentPage)) {
-        includedPages.push(currentPage);
-
-        const li = document.createElement("li");
-        li.innerHTML = `
-        ${currentPage}
-        <button class="move-up-btn" data-page="${currentPage}" style="margin-left:5px;">🔼</button>
-        <button class="move-down-btn" data-page="${currentPage}" style="margin-left:5px;">🔽</button>
-        <button class="remove-page-btn" data-page="${currentPage}" style="margin-left:5px;">❌</button>
-      `;
-      
-        document.getElementById("site-stack-list").appendChild(li);
-        localStorage.setItem('includedPages', JSON.stringify(includedPages));
-
-      }
-    });
-  }
-});
-
-
 
 //blog category 
 document.addEventListener("DOMContentLoaded", () => {
@@ -416,6 +456,64 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// delete event
+document.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.getElementById("add-current-page");
+  const list = document.getElementById("site-stack-list");
+
+  if (addBtn && list) {
+    addBtn.addEventListener("click", () => {
+      if (!includedPages.includes(currentPage)) {
+        includedPages.push(currentPage);
+
+        const li = document.createElement("li");
+        li.classList.add('site-stack-item');
+        li.innerHTML = `
+          <span class="page-name">${currentPage}</span>
+          <div class="stack-actions">
+            <button class="move-up-btn" data-page="${currentPage}" title="Move Up"><i class="fa fa-arrow-up"></i></button>
+            <button class="move-down-btn" data-page="${currentPage}" title="Move Down"><i class="fa fa-arrow-down"></i></button>
+            <button class="remove-page-btn" data-page="${currentPage}" title="Remove"><i class="fa fa-trash"></i></button>
+          </div>
+        `;
+        list.appendChild(li);
+        localStorage.setItem('includedPages', JSON.stringify(includedPages));
+      }
+    });
+
+    // ✅ Attach button event listeners AFTER element exists
+    list.addEventListener("click", (e) => {
+      const target = e.target.closest("button");
+      if (!target) return;
+
+      const li = target.closest("li");
+      const page = target.getAttribute("data-page");
+
+      if (target.classList.contains("remove-page-btn")) {
+        includedPages = includedPages.filter(p => p !== page);
+        li.remove();
+        reorderIncludedPages();
+      }
+
+      if (target.classList.contains("move-up-btn")) {
+        const prev = li.previousElementSibling;
+        if (prev) {
+          li.parentNode.insertBefore(li, prev);
+          reorderIncludedPages();
+        }
+      }
+
+      if (target.classList.contains("move-down-btn")) {
+        const next = li.nextElementSibling;
+        if (next) {
+          li.parentNode.insertBefore(next, li);
+          reorderIncludedPages();
+        }
+      }
+    });
+  }
+});
+ 
 
 
 // In dev console

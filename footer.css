@@ -1,0 +1,22 @@
+/* Footer Styles */
+.site-footer {
+    background-color: #0b1d3a;
+    color: #eee;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    color: #ccc;
+    margin: 0 12px;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+  }

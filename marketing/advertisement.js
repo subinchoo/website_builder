@@ -36,11 +36,18 @@ export function loadAdPage(editor) {
         </div>
       </section>
 
-      <section class="ad-media">
-        <h2 class="ad-section-heading">Our Works</h2>
-        <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
-        <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
-      </section>
+    <section class="ad-media">
+  <h2 class="ad-section-heading">Our Works</h2>
+  <div class="ad-slider">
+    <div class="ad-slider-track">
+      <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
+      <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
+      <!-- Duplicate for seamless loop -->
+      <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
+      <img src="https://via.placeholder.com/1000x500" alt="Project Preview" class="ad-preview-img" />
+    </div>
+  </div>
+</section>
 
       <section class="ad-contact">
         <div class="contact-container">

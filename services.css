@@ -1,0 +1,41 @@
+/* Services Page Styles */
+.services-hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #f0f4fa;
+  }
+  
+  .services-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #2a2a72;
+  }
+  
+  .services-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #555;
+  }
+  
+  .services-cards {
+    padding: 60px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .service-card {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+  }

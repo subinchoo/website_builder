@@ -1,0 +1,24 @@
+/* Layout Styles */
+.layout-2-column {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .layout-2-column > div {
+    flex: 1;
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .layout-4-column {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .layout-4-column > div {
+    flex: 1 1 calc(25% - 10px);
+    background: #e0e0e0;
+    padding: 10px;
+    border-radius: 8px;
+  }

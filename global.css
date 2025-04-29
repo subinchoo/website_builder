@@ -1,0 +1,59 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+  }
+  
+  body {
+    line-height: 1.6;
+    background-color: #fdfdfd;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  /* Buttons */
+  .btn {
+    font-size: 1rem;
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+  
+  .fancy-btn {
+    background: linear-gradient(to right, #4e54c8, #8f94fb);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(78, 84, 200, 0.4);
+  }
+  
+  .fancy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 84, 200, 0.6);
+  }
+  
+  .fancy-btn-outline {
+    border: 2px solid #4e54c8;
+    color: #4e54c8;
+    background-color: white;
+  }
+  
+  .fancy-btn-outline:hover {
+    background: #4e54c8;
+    color: white;
+    box-shadow: 0 4px 14px rgba(78, 84, 200, 0.3);
+  }

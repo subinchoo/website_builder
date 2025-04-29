@@ -19,38 +19,8 @@
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
-.auto-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9999;
-  background-color: #ffffff;
-  padding: 12px 24px;
-  display: flex;
-  justify-content: center;
-  border-bottom: 1px solid #ddd;
-}
-
-.auto-navbar .navbar-list {
-  display: flex;
-  gap: 20px;
-}
-
-.auto-navbar .navbar-list li a {
-  color: black;
-  
-  font-weight: bold;
-}
 
 
-.auto-navbar .navbar-list li a:hover {
-  text-decoration: underline;
-}
-
-body {
-  padding-top: 60px;
-}
 
 #top-panel {
   font-family: "Open Sans", sans-serif;
@@ -70,27 +40,86 @@ body {
   padding: 8px;
   color: #555;
   transition: all 0.2s ease;
+  
 }
 
 #top-panel .fa:hover {
   font-family: "Font Awesome 5 Free", "FontAwesome";  color: #618ff3;
  
 }
+#top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
+  padding: 10px 20px;
+}
+
+.top-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.top-button {
+  background: #1e1e5e;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logo-upload img {
+  height: 40px;
+  cursor: pointer;
+}
+
+.right-icons {
+  display: flex;
+  gap: 15px;
+  font-size: 24px;
+}
+
+/* Shift builder-container DOWN to not hide under top-bar */
+#builder-container {
+  padding-top: 80px; /* height of top bar + some margin */
+}
+
+.icon-accessibility, .icon-cart {
+  font-size: 20px;
+  cursor: pointer;
+}
 .right-panel {
   font-family: "Open Sans", sans-serif;
   width: 300px;
   background: #f4f4f4;
   overflow-y: auto;
+ 
 }
 #page-wrapper {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 60px); /* leave room for the footer */
+  height: 100vh;/* leave room for the footer */
+  padding-top:80px;
+  
 }
 #main {
+  margin-top:40px;
   display: flex;
-  height: calc(100vh - 50px);
+  height: 100vh;
   width:90%;
+  overflow:hidden;
+  position:relative;
 }
 
 #left-panel {
@@ -102,6 +131,7 @@ body {
   padding:  10px; 
   box-sizing: border-box;
   position: relative;
+  overflow-y:auto;
 }
 
 #left-tabs {
@@ -133,7 +163,8 @@ body {
 }
 
 
-#style-pane{
+#style-panel{
+  position: relative;
   flex-shrink: 0;
   width:290px;
 }
@@ -160,7 +191,7 @@ body {
 
 
 body {
- 
+  margin-top: 40px;
   line-height: 1.6;
   background-color: #fdfdfd;
   color: #333;
@@ -168,7 +199,6 @@ body {
 
 section {
   width: 100%;
-  padding: 60px 20px;
 }
 
 /* Hero Banner */
@@ -192,6 +222,17 @@ section {
   margin: 0 auto;
   opacity: 0.9;
   background: none !important;
+}
+.logo-container {
+  display: inline-block;
+  text-align: center;
+}
+
+.logo-img {
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Auth Buttons - Centered & Fancy */
@@ -313,10 +354,12 @@ section {
 }
 
 /* About Brief */
-.about-brief {
+.about-brief , .about-brief p {
   text-align: center;
   max-width: 800px;
   margin: auto;
+  font-size:1rem;
+  margin-top:10px;
 }
 
 /* Footer */
@@ -1026,6 +1069,49 @@ section {
   text-align: left;
   background-color: transparent !important;
 
+}
+#site-stack-list {
+  padding: 0;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.site-stack-item {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: background 0.2s;
+}
+
+.site-stack-item:hover {
+  background-color: #f0f0f0;
+}
+
+.page-name {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.stack-actions button {
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.stack-actions button:hover {
+  color: #007bff;
 }
 
 .benefits-section li {

@@ -7,10 +7,10 @@ export function loadLayoutBlocks(editor) {
     category: 'Layout',
     content: `
       <div style="display: flex; flex-wrap: wrap; gap: 5px; ${blockStyle}">
-        <div style="flex: 1; min-width: 80px; background: #f0f0f0; padding: 5px; border-radius: 5px; ">
+        <div style="flex: 1; min-width: 80px; background: #e0e0e0; padding: 5px; border-radius: 5px; ">
           <p style="margin: 0; font-size: 12px;">Column 1</p>
         </div>
-        <div style="flex: 1; min-width: 80px; background: #f0f0f0; padding: 5px; border-radius: 5px; ">
+        <div style="flex: 1; min-width: 80px; background: #e0e0e0; padding: 5px; border-radius: 5px; ">
           <p style="margin: 0; font-size: 12px;">Column 2</p>
         </div>
       </div>
@@ -23,22 +23,22 @@ export function loadLayoutBlocks(editor) {
     category: 'Layout',
     content: `
       <div style="display: flex; flex-wrap: wrap; gap: 8px; ${blockStyle}">
-        <div style="flex: 1 1 calc(20% - 8px); background: #f0f0f0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0; font-size: 11px;">Col 1</p></div>
-        <div style="flex: 1 1 calc(20% - 8px); background: #ddd; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0; font-size: 11px;">Col 2</p></div>
-        <div style="flex: 1 1 calc(20% - 8px); background: #f0f0f0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0;font-size: 11px;">Col 3</p></div>
-        <div style="flex: 1 1 calc(20% - 8px); background: #f0f0f0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0; font-size: 11px;">Col 4</p></div>
+        <div style="flex: 1 1 calc(20% - 8px); background: #e0e0e0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0; font-size: 11px;">Col 1</p></div>
+        <div style="flex: 1 1 calc(20% - 8px); background: #e0e0e0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0; font-size: 11px;">Col 2</p></div>
+        <div style="flex: 1 1 calc(20% - 8px); background: #e0e0e0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0;font-size: 11px;">Col 3</p></div>
+        <div style="flex: 1 1 calc(20% - 8px); background: #e0e0e0; padding: 6px; border-radius: 6px; min-width: 60px; "><p style="margin: 0; font-size: 11px;">Col 4</p></div>
       </div>
     `
   });
 
   // 2 Horizontal Rows
   editor.BlockManager.add('layout-2-horizontal', {
-    label: '2 Rows',
+    label: '2 Rows Layout',
     category: 'Layout',
     content: `
       <div style="display: flex; flex-direction: column; gap: 5px; ${blockStyle}">
-        <div style="background: #f9f9f9; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Row 1</p></div>
-        <div style="background: #f9f9f9; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Row 2</p></div>
+        <div style="background: #e0e0e0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Row 1</p></div>
+        <div style="background: #e0e0e0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Row 2</p></div>
       </div>
     `
   });
@@ -49,9 +49,9 @@ export function loadLayoutBlocks(editor) {
     category: 'Layout',
     content: `
       <div style="display: flex; gap: 8px; ${blockStyle}">
-        <div style="flex: 1; background: #f0f0f0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Col 1</p></div>
-        <div style="flex: 1; background: #f0f0f0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Col 2</p></div>
-        <div style="flex: 1; background: #f0f0f0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Col 3</p></div>
+        <div style="flex: 1; background: #e0e0e0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Col 1</p></div>
+        <div style="flex: 1; background: #e0e0e0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Col 2</p></div>
+        <div style="flex: 1; background: #e0e0e0; padding: 6px; border-radius: 5px; "><p style="margin: 0; font-size: 12px;">Col 3</p></div>
       </div>
     `
   });
@@ -75,7 +75,7 @@ export function loadLayoutBlocks(editor) {
     category: 'Layout',
     content: `
       <div style="${blockStyle}">
-        <hr style="border: none; border-top: 1px solid #ccc; margin: 10px 0;" />
+        <hr style="border: none; border-top: 1px solid #ccc; margin: 30px 0;" />
       </div>
     `
   });
