@@ -21,14 +21,16 @@
 
   <!-- Main Layout -->
 <div id="main" style="display: flex; flex: 1; width: 100vw; overflow: hidden; position: relative;">
-    <div id="left-panel" style=" width: 250px;
-    min-width: 250px;
+    <div id="left-panel" style=" width: 270px;
+    min-width: 270px;
     flex-shrink: 0;">
       <div id="left-tabs" >
 
         <button data-tab="blocks" class="tab-btn active">Blocks</button>
         <button data-tab="pages" class="tab-btn">Pages</button>
         <button data-tab="stack" class="tab-btn">Site Stack</button>
+        <button data-tab="brand" class="tab-btn">Brand</button>
+
       </div>
       <div id="blocks-tab" class="tab-content active"></div>
       <div id="pages-tab" class="tab-content">
@@ -51,8 +53,24 @@
         <button id="add-current-page" style="margin: 10px 0;">+ Add Current Page to Site</button>
         <ul id="site-stack-list" style="list-style: none; padding: 0;"></ul>
       </div>
-      
       <div id="layers-tab" class="tab-content" ></div>
+      <div id="brand-tab" class="tab-content">
+        <h3 style="color:black">Brand Colors</h3>
+        <div class = "brand-color-picker">
+          <label>Primary Color</label>
+          <input type="color" id="brand-primary" value="#ff0000">
+        </div>
+        <div class = "brand-color-picker">
+          <label>Secondary Color</label>
+          <input type="color" id="brand-secondary" value="#ff0000">
+        </div>
+        <div class = "brand-color-picker">
+          <label>Accent Color</label>
+          <input type="color" id="brand-accent" value="#ff0000">
+        </div>
+      </div>
+     
+     
     </div>
 `
     <div id="gjs" style=" background: #fff; overflow:auto; min-width: 0; margin-top:10px; ">

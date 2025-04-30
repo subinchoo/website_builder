@@ -1121,6 +1121,46 @@ section {
   background-color: transparent !important;
 
 }
+.brand-color-picker {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-color-picker label {
+  font-size: 14px;
+  color: #333;
+}
+
+.brand-color-picker input[type="color"] {
+  width: 40px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+
+.brand-color-picker input[type='text'] {
+  flex: 1;
+  padding: 4px 6px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.brand-color-picker input[type='color'] {
+  width: 40px;
+  height: 32px;
+  border: none;
+}
+
+.brand-color-picker button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
 
 /* === Final CTA Section === */
 .cta-final {

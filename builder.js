@@ -20,9 +20,98 @@ import { loadServicesPage } from './pages/services.js';
 
 // Declare this globally before anything else
 let userPages = {};
-let currentPage = 'home'; // default starting page
+let currentPage = 'home';
 let includedPages = [];
-window.includedPages = includedPages; 
+window.includedPages = includedPages;
+
+let brandColors = {
+  primary: '#ff0000',
+  secondary: '#00ff00',
+  accent: '#0000ff'
+};
+
+function updateBrandingSector() {
+  const sector = editor.StyleManager.getSector('branding');
+  if (!sector) return;
+
+  const props = [
+    {
+      property: 'background-color',
+      type: 'select',
+      name: 'Brand Background',
+      defaults: '',
+      options: [
+        { value: brandColors.primary, name: `Primary (${brandColors.primary})` },
+        { value: brandColors.secondary, name: `Secondary (${brandColors.secondary})` },
+        { value: brandColors.accent, name: `Accent (${brandColors.accent})` }
+      ]
+    },
+    {
+      property: 'color',
+      type: 'select',
+      name: 'Brand Text Color',
+      defaults: '',
+      options: [
+        { value: brandColors.primary, name: `Primary (${brandColors.primary})` },
+        { value: brandColors.secondary, name: `Secondary (${brandColors.secondary})` },
+        { value: brandColors.accent, name: `Accent (${brandColors.accent})` }
+      ]
+    }
+  ];
+
+  sector.get('properties').reset(props);
+}
+function renderBrandColorInputs() {
+  const container = document.getElementById('brand-color-list');
+  container.innerHTML = '';
+
+  Object.entries(brandColors).forEach(([name, value]) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'brand-color-picker';
+    wrapper.style.display = 'flex';
+    wrapper.style.gap = '10px';
+    wrapper.style.marginBottom = '10px';
+
+    const label = document.createElement('input');
+    label.type = 'text';
+    label.value = name;
+    label.className = 'brand-label';
+
+    const input = document.createElement('input');
+    input.type = 'color';
+    input.value = value;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = '🗑️';
+    removeBtn.title = 'Remove';
+    removeBtn.onclick = () => {
+      delete brandColors[name];
+      renderBrandColorInputs();
+      updateBrandingSector();
+    };
+
+    label.addEventListener('input', () => {
+      const newName = label.value.trim();
+      if (newName && newName !== name && !brandColors[newName]) {
+        brandColors[newName] = brandColors[name];
+        delete brandColors[name];
+        renderBrandColorInputs();
+        updateBrandingSector();
+      }
+    });
+
+    input.addEventListener('input', () => {
+      brandColors[label.value.trim()] = input.value;
+      updateBrandingSector();
+    });
+
+    wrapper.appendChild(label);
+    wrapper.appendChild(input);
+    wrapper.appendChild(removeBtn);
+    container.appendChild(wrapper);
+  });
+}
+
 
 const editor = grapesjs.init({
   container: '#gjs',
@@ -31,53 +120,33 @@ const editor = grapesjs.init({
   fromElement: true,
   storageManager: false,
   blockManager: { appendTo: '#blocks-tab' },
-  styleManager:{ appendTo: '#style-panel' },
+  styleManager: { appendTo: '#style-panel' },
   traitManager: { appendTo: '#style-panel' },
   canvas: {
     styles: [
-      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css', 
+      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
       'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap',
-      'style.css',
-      'form-style.css',
-      'marketing-style.css',
-      'global.css',
-      'home.css',
-      'footer.css',
-      'layout.css',
-      'services.css',
-      'thankyou.css'
+      'style.css', 'form-style.css', 'marketing-style.css', 'global.css', 'home.css', 'footer.css', 'layout.css', 'services.css', 'thankyou.css'
     ],
     style: `
-      * {
-        font-family: 'Open Sans', sans-serif !important;
-      }
-      body {
-        font-family: 'Open Sans', sans-serif !important;
-        min-height: 100%;
-        overflow-y: auto;
-      }
-      html {
-        min-height: 100%;
-      }
+      * { font-family: 'Open Sans', sans-serif !important; }
+      body { font-family: 'Open Sans', sans-serif !important; min-height: 100%; overflow-y: auto; }
+      html { min-height: 100%; }
     `
   },
   panels: {
     defaults: [
-      {
-        id: 'topbar',
-        el: '#top-panel',
-        buttons: [
-          { id: 'undo', label: `<i class="fa fa-undo"></i>`, command: 'core:undo', attributes: { title: 'Undo' } },
-          { id: 'redo', label: `<i class="fa fa-redo"></i>`, command: 'core:redo', attributes: { title: 'Redo' } },
-          { id: 'preview', className: 'fa fa-eye', command: 'preview', attributes: { title: 'Preview' } },
-          { id: 'save', className: 'fa fa-save', command: 'save-data', attributes: { title: 'Save Project' } },
-          { id: 'device-desktop', className: 'fa fa-desktop', command: e => e.setDevice('Desktop'), attributes: { title: 'Desktop View' } },
-          { id: 'device-tablet', className: 'fa fa-tablet', command: e => e.setDevice('Tablet'), attributes: { title: 'Tablet View' } },
-          { id: 'device-mobile', className: 'fa fa-mobile', command: e => e.setDevice('Mobile'), attributes: { title: 'Mobile View' } }
-        ]
-      },
+      { id: 'topbar', el: '#top-panel', buttons: [
+        { id: 'undo', label: `<i class="fa fa-undo"></i>`, command: 'core:undo', attributes: { title: 'Undo' } },
+        { id: 'redo', label: `<i class="fa fa-redo"></i>`, command: 'core:redo', attributes: { title: 'Redo' } },
+        { id: 'preview', className: 'fa fa-eye', command: 'preview', attributes: { title: 'Preview' } },
+        { id: 'save', className: 'fa fa-save', command: 'save-data', attributes: { title: 'Save Project' } },
+        { id: 'device-desktop', className: 'fa fa-desktop', command: e => e.setDevice('Desktop'), attributes: { title: 'Desktop View' } },
+        { id: 'device-tablet', className: 'fa fa-tablet', command: e => e.setDevice('Tablet'), attributes: { title: 'Tablet View' } },
+        { id: 'device-mobile', className: 'fa fa-mobile', command: e => e.setDevice('Mobile'), attributes: { title: 'Mobile View' } }
+      ]},
       { id: 'left-panel', el: '#left-panel' },
-      { id:'style-manager', el : '#style-panel' },
+      { id: 'style-manager', el: '#style-panel' },
     ]
   },
   layerManager: { appendTo: '#layers-tab' },
@@ -88,8 +157,34 @@ const editor = grapesjs.init({
       { name: 'Mobile', width: '375px' }
     ]
   }
-  
 });
+
+editor.StyleManager.addSector('branding', {
+  name: 'Branding',
+  open: true,
+  buildProps: ['background-color', 'color'],
+  properties: []
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const inputs = {
+    primary: document.getElementById('brand-primary'),
+    secondary: document.getElementById('brand-secondary'),
+    accent: document.getElementById('brand-accent')
+  };
+
+  Object.entries(inputs).forEach(([key, input]) => {
+    input.addEventListener('input', () => {
+      brandColors[key] = input.value;
+      updateBrandingSector();
+    });
+  });
+});
+
+
+
+// Initial call
+updateBrandingSector();
 
 // registerAutoNavbar(editor, () => ['home', 'about', 'services', 'contact']);
 editor.addComponents(`
@@ -97,7 +192,7 @@ editor.addComponents(`
     <div class="top-content">
       <div class="left-buttons">
         <button class="top-button">Shop</button>
-        <button class="top-button">Take Quiz</button>
+        <button class="top-button">Contact Us</button>
       </div>
       <div class="logo-upload">
         <label for="logo-upload-input">
@@ -256,6 +351,22 @@ function reorderIncludedPages() {
   });
   includedPages = newOrder;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const inputs = {
+    primary: document.getElementById('brand-primary'),
+    secondary: document.getElementById('brand-secondary'),
+    accent: document.getElementById('brand-accent')
+  };
+
+  Object.entries(inputs).forEach(([key, input]) => {
+    input.addEventListener('input', () => {
+      brandColors[key] = input.value;
+      console.log(`Updated ${key} to ${input.value}`);
+    });
+  });
+});
+
 // Load page blocks
 loadHomePage(editor);
 registerAboutHeroComponent(editor);

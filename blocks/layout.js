@@ -79,4 +79,15 @@ export function loadLayoutBlocks(editor) {
       </div>
     `
   });
+
+   // Spacer (empty space)
+   editor.BlockManager.add('layout-spacer', {
+    label: 'Spacer',
+    category: 'Layout',
+    content: `
+      <div style="${blockStyle}">
+        <hr style="border: none; margin: 30px 0;" />
+      </div>
+    `
+  });
 }
